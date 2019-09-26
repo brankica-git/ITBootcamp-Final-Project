@@ -11,22 +11,23 @@ public class HumanitySettings {
 	private static final String SELECT_LANGUAGE_XPATH="//td[@class='nowrap']//select[@name='language']";
 	private static final String SELECT_TIME_XPATH="//select[@name='pref_24hr']";
 	
-	//select country
-	
+	// Select Country	
 	public static Select getCountry(WebDriver driver) {
 		return new Select(driver.findElement(By.xpath(SELECT_COUNTRY_XPATH)));
 	}
 	public static void inputCountry(WebDriver driver, String data ) {
 		getCountry(driver).selectByVisibleText(data);
 	}
-	//default language
+	
+	// Default Language
 	public static Select getLanguage(WebDriver driver) {
 		return new Select(driver.findElement(By.xpath(SELECT_LANGUAGE_XPATH)));
 	}
 	public static void inputLanguage(WebDriver driver, String data ) {
 		getLanguage(driver).selectByVisibleText(data);
 	}
-	//Time format
+	
+	// Time Format
 	public static Select getTime(WebDriver driver) {
 		return new Select(driver.findElement(By.xpath(SELECT_TIME_XPATH)));
 	}

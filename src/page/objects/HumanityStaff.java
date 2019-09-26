@@ -11,9 +11,10 @@ public class HumanityStaff {
 	public static final String URL="https://kompanija54.humanity.com/app/staff/list/load/true/";
 	public static final String STAFF_XPATH="//a[@id='sn_staff']//span[@class='primNavQtip__inner']";
 	private static final String ADD_EMPLOYEE_BTN_XPATH="//button[@id='act_primary']";
-	private static final String IME_XPATH="//input[@id='_asf1']";
-	private static final String PREZIME_XPATH="//input[@id='_asl1']";
-	private static final String MEJL_XPATH="//input[@id='_ase1']";
+	private static final String IME_XPATH="//input[@id='_asf";
+	private static final String PREZIME_XPATH="//input[@id='_asl";
+	private static final String MEJL_XPATH="//input[@id='_ase";
+	private static final String INPUT_END_XPATH="']";
 	private static final String NEW_EMPLOYEE="//a[contains(text(),'";
 	private static final String NEW_EMPLOYEE_END="')]";
 	private static final String EMPLOYEES_TABLE_XPATH = "//table[contains(@class,'employeesList')]//tbody";
@@ -45,45 +46,48 @@ public class HumanityStaff {
 	}
 	
 	//ime zaposlenog
-	public static WebElement getIme(WebDriver driver) {
-		return driver.findElement(By.xpath(IME_XPATH));
+	public static WebElement getIme(WebDriver driver, int index) {
+		String xpath = IME_XPATH + Integer.toString(index) + INPUT_END_XPATH;
+		return driver.findElement(By.xpath(xpath));
 	}
 	
-	public static void inputIme(WebDriver driver, String data) {
-		getIme(driver).sendKeys(data);
+	public static void inputIme(WebDriver driver, String data, int index) {
+		getIme(driver, index).sendKeys(data);
 		
 	}
 
-	public static void clickIme(WebDriver driver) {
-		getIme(driver).click();	
+	public static void clickIme(WebDriver driver, int index) {
+		getIme(driver, index).click();	
 	}
 	
 	//prezime zaposlenog
-	public static WebElement getPrezime(WebDriver driver) {
-		return driver.findElement(By.xpath(PREZIME_XPATH));
+	public static WebElement getPrezime(WebDriver driver, int index) {
+		String xpath = PREZIME_XPATH + Integer.toString(index) + INPUT_END_XPATH;
+		return driver.findElement(By.xpath(xpath));
 	}
 	
-	public static void inputPrezime(WebDriver driver,String data) {
-		getPrezime(driver).sendKeys(data);
+	public static void inputPrezime(WebDriver driver, String data, int index) {
+		getPrezime(driver, index).sendKeys(data);
 		
 	}
 
-	public static void clickPrezime(WebDriver driver) {
-		getPrezime(driver).click();	
+	public static void clickPrezime(WebDriver driver, int index) {
+		getPrezime(driver, index).click();	
 	}
 	
 	//mejl
-	public static WebElement getMejl(WebDriver driver) {
-		return driver.findElement(By.xpath(MEJL_XPATH));
+	public static WebElement getMejl(WebDriver driver, int index) {
+		String xpath = MEJL_XPATH + Integer.toString(index) + INPUT_END_XPATH;
+		return driver.findElement(By.xpath(xpath));
 	}
 	
-	public static void inputMejl(WebDriver driver,String data) {
-		getMejl(driver).sendKeys(data);
+	public static void inputMejl(WebDriver driver, String data, int index) {
+		getMejl(driver, index).sendKeys(data);
 		
 	}
 
-	public static void clickMejl(WebDriver driver) {
-		getMejl(driver).click();	
+	public static void clickMejl(WebDriver driver, int index) {
+		getMejl(driver, index).click();	
 	}
 	
 	//save

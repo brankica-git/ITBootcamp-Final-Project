@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class HumanityHome {
+	public static final String DATA_SOURCE="Data.xls";
 	public static final String URL = "https://www.humanity.com/";
 	private static final String NAME_XPATH = "//div[@class='input-wrapper']//input[@placeholder='Full Name']";
 	private static final String EMAIL_XPATH = "//div[@class='input-wrapper']//input[@placeholder='Work Email']";
