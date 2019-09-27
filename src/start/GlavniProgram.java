@@ -36,6 +36,9 @@ public class GlavniProgram {
 				case 4:
 					HumanitySettingsTest.settingsTest();
 					break;
+				case 0: 
+					System.out.println("Izlaz");
+					break;
 				default:
 					System.out.println("Nevalidan unos");
 					break;

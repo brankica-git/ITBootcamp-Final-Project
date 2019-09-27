@@ -8,7 +8,7 @@ import page.objects.HumanityMenu;
 import page.objects.HumanitySettings;
 
 public class HumanitySettingsTest {
-	public static boolean settingsTest() {
+	public static boolean settingsTest() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		
@@ -20,23 +20,29 @@ public class HumanitySettingsTest {
 		HumanityHome.inputSifra(driver, "malacoka");
 		HumanityHome.clickPritisniLogin(driver);
 		
+		Thread.sleep(5000);
+		
 		HumanityMenu.clickSettingsBtn(driver);
+		
 		if (driver.getCurrentUrl().contains(HumanitySettings.URL) == false) {
-			System.out.println("Add Photo test pao - nije uspelo otvaranje strane Settings");
+			System.out.println("Odaberi padajuci meni test pao - nije uspelo otvaranje strane Settings");
 			return false;
 		}
 		
+		Thread.sleep(2000);
+		
 		try {
-			HumanitySettings.inputCountry(driver, "Norway");
+			HumanitySettings.inputCountry(driver, "India");
 			HumanitySettings.inputLanguage(driver, "Spanish");
 			HumanitySettings.inputTime(driver, "12 hour");
-			System.out.println("Add Photo test prosao");
+			System.out.println("Padajuci meni- test prosao");
 			return true;
 		} catch (Exception e) {
 			System.out.println(e);
-			System.out.println("Add Photo test pao - nisu uspele izmene dropdown-a za country, language ili vreme");
+			System.out.println("Padajuci meni - nisu uspele izmene dropdown-a za country, language ili vreme");
 			return false;
 		} finally {
+			Thread.sleep(6000);
 			driver.quit();
 		}
 	}
